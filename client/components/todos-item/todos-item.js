@@ -9,8 +9,11 @@ class TodosItem {
     constructor($scope, $reactive, data) {
         this._id = data._id;
         this.listId = data.listId;
-        this.checked = data.checked;
-        this.text = data.text;
+
+        this.helpers({
+            checked: () => Todos.findOne(data._id).checked,
+            text: () => Todos.findOne(data._id).text
+        });
     }
 }
 
