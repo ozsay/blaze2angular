@@ -6,7 +6,12 @@ var {Component, View, Inject} = angular2now;
 @View({templateUrl: 'client/components/todos-item/todos-item.ng.html'})
 @Inject('$scope', '$reactive', 'data')
 class TodosItem {
-    constructor($scope, $reactive, data) {}
+    constructor($scope, $reactive, data) {
+        this._id = data._id;
+        this.listId = data.listId;
+        this.checked = data.checked;
+        this.text = data.text;
+    }
 }
 
 window.TodosItem = TodosItem;
