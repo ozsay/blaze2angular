@@ -22,6 +22,10 @@ class TodosItem {
         Todos.update(this._id, {$set: {checked: this.checked}});
         Lists.update(this.listId, {$inc: {incompleteCount: this.checked ? -1 : 1}});
     }
+
+    detectTitleChanges() {
+        Todos.update(this._id, {$set: {text: this.text}});
+    }
 }
 
 window.TodosItem = TodosItem;
