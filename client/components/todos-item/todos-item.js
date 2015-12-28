@@ -18,7 +18,9 @@ class TodosItem {
         });
 
         $scope.$watch("todosItem.text", () => {
-            Todos.update(this._id, {$set: {text: this.text}});
+            if (this.text !== undefined) {
+                Todos.update(this._id, {$set: {text: this.text}});
+            }
         });
     }
 
