@@ -17,3 +17,8 @@ Template.todosItem.onRendered(function() {
 
   this.$('removable').replaceWith(this.elem);
 });
+
+Template.todosItem.onDestroyed(function() {
+  this.scope.$destroy();
+  this.elem.remove();
+});
