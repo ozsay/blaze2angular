@@ -1,10 +1,11 @@
-<div ng-class="['list-item', todosItem.checked ? 'checked' : '']">
+<div ng-class="['list-item', todosItem.checked ? 'checked' : '', todosItem.editing ? 'editing' : '']">
     <label class="checkbox">
         <input type="checkbox" name="checked" ng-model="todosItem.checked" ng-change="todosItem.check()">
         <span class="checkbox-custom"></span>
     </label>
 
     <input type="text" placeholder="Task name" ng-model="todosItem.text" ng-required="true" ng-minlength="5"
-           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }">
+           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }"
+           ng-focus="todosItem.editing = true" ng-blur="todosItem.editing = false">
     <a class="js-delete-item delete-item" href="#"><span class="icon-trash"></span></a>
 </div>
