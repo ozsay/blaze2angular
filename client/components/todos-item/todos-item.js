@@ -10,6 +10,8 @@ class TodosItem {
         this._id = data._id;
         this.listId = data.listId;
 
+        $reactive(this).attach($scope);
+
         this.helpers({
             checked: () => Todos.findOne(data._id).checked,
             text: () => Todos.findOne(data._id).text
