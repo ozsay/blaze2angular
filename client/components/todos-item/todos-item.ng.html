@@ -7,5 +7,5 @@
     <input type="text" placeholder="Task name" ng-model="todosItem.text" ng-required="true" ng-minlength="5"
            ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }"
            ng-focus="todosItem.editing = true" ng-blur="todosItem.editing = false">
-    <a class="js-delete-item delete-item" href="#"><span class="icon-trash"></span></a>
+    <a class="js-delete-item delete-item" href="#"><span class="icon-trash" ng-click="todosItem.delete()" ng-mousedown="todosItem.delete()"></span></a>
 </div>
