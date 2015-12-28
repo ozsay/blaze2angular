@@ -16,15 +16,15 @@ class TodosItem {
             checked: () => Todos.findOne(data._id).checked,
             text: () => Todos.findOne(data._id).text
         });
+
+        $scope.$watch("todosItem.text", () => {
+            Todos.update(this._id, {$set: {text: this.text}});
+        });
     }
 
     check() {
         Todos.update(this._id, {$set: {checked: this.checked}});
         Lists.update(this.listId, {$inc: {incompleteCount: this.checked ? -1 : 1}});
-    }
-
-    detectTitleChanges() {
-        Todos.update(this._id, {$set: {text: this.text}});
     }
 }
 
