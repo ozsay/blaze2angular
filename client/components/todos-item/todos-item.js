@@ -17,6 +17,11 @@ class TodosItem {
             text: () => Todos.findOne(data._id).text
         });
     }
+
+    check() {
+        Todos.update(this._id, {$set: {checked: this.checked}});
+        Lists.update(this.listId, {$inc: {incompleteCount: this.checked ? -1 : 1}});
+    }
 }
 
 window.TodosItem = TodosItem;
