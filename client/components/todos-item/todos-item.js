@@ -22,6 +22,10 @@ class TodosItem {
                 Todos.update(this._id, {$set: {text: this.text}});
             }
         });
+
+        $scope.$on('$destroy', () => {
+            this.stop();
+        });
     }
 
     check() {
