@@ -17,3 +17,10 @@ accounts-password
 jquery
 tracker
 check
+
+pbastowski:angular-babel@1.0.7
+pbastowski:angular2-now@1.0.2
+angular-with-blaze@1.3.2
+urigo:angular-blaze-template@0.3.0
+angularui:angular-ui-router@0.2.15
+dotansimha:angular-reactive-component@0.0.4
